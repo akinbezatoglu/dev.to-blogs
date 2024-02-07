@@ -1,0 +1,23 @@
+name: publish
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'posts/**/**.md' # Path for single posts
+      - 'posts/**/**/**.md' # Path for series posts
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish articles on dev.to
+        uses: sinedied/publish-devto@v2
+        id: publish_devto
+        with:
+          # Your dev.to personal API key to publish and update articles.
+          # See https://docs.dev.to/api/#section/Authentication/api_key
+          devto_key: ${{ secrets.DEV_TO_API_TOKEN}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: 'posts/**/*.md'
