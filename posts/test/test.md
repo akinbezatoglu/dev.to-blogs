@@ -2,8 +2,10 @@
 title: My first automated blog - TEST
 published: true
 description: My first automated blog - TEST
-tags: 'test'
+tags: test
 canonical_url: null
+id: 1754845
+date: '2024-02-07T19:42:07Z'
 ---
 
 # Project Overview
